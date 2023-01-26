@@ -17,8 +17,7 @@ export const resolver = {
 function createUser(name, email) {
     const id = users.length + 1
     users.push({id, name, email})
-    console.log(users)
-    return users
+    return users[users.length-1]
 }
 
 function findUserById(id) {
