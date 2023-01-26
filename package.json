@@ -1,0 +1,15 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./app.js"
+  },
+  "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-import": "^1.0.2",
+    "graphql-yoga": "^3.3.0"
+  }
+}
