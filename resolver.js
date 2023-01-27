@@ -1,25 +1,16 @@
-const users = [
-    {id: 1, name: "Jean Lucca", email: "jean@email.com"},
-    {id: 2, name: "Jaqueline", email: "jaque@email.com"}
-]
+
+import { UserServices } from './user.services.js'
+import { users } from './users.repository.js'
+
+const userServices = new UserServices(users)
 
 export const resolver = {
     Query: {
         hello: () => 'Hello Hello Hello',
         users: () => users,
-        user: (_, { id }) => findUserById(id)
+        user: (_, { id }) => userServices.findUserById(id)
     },
     Mutation: {
-        createUser: (_, { name, email }) => createUser(name, email)
+        createUser: (_, { name, email }) => userServices.createUser(name, email)
     }
-}
-
-function createUser(name, email) {
-    const id = users.length + 1
-    users.push({id, name, email})
-    return users[users.length-1]
-}
-
-function findUserById(id) {
-    return users.find(user => user.id == id)
 }
